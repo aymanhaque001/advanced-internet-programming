@@ -1,17 +1,30 @@
-# CSC 515/615 - Advanced Internet Programming
-Spring 2020
+# rollup-starter-app
 
-## Overview
- * [Course Syllabus](syllabus.md)
- * [Project Homework Checkpoints](project/)
+This repo contains a bare-bones example of how to create an application using Rollup, including importing a module from `node_modules` and converting it from CommonJS.
 
-### Reference Material
- * [Lecture Videos](https://www.youtube.com/playlist?list=PLySiLhgfbmzZ8guXBehNJ_8OMVXdS-Xkm)
- * [EcmaScript 2015 (ES6)](https://github.com/nzakas/understandinges6)
- * [npm package.json](https://docs.npmjs.com/files/package.json)
- * [NodeJS modules](https://nodejs.org/api/modules.html)
+*See also https://github.com/rollup/rollup-starter-lib*
 
-### Git and GitHub
- * [Git GUI Client - SourceTree](https://www.atlassian.com/software/sourcetree/overview/)
- * [Fundamentals of Forking](https://guides.github.com/activities/forking/)
- * [Forking a Repository](https://help.github.com/articles/fork-a-repo/)
+
+## Getting started
+
+Clone this repository and install its dependencies:
+
+```bash
+git clone https://github.com/rollup/rollup-starter-app
+cd rollup-starter-app
+npm install
+```
+
+The `public/index.html` file contains a `<script src='bundle.js'>` tag, which means we need to create `public/bundle.js`. The `rollup.config.js` file tells Rollup how to create this bundle, starting with `src/main.js` and including all its dependencies, including [date-fns](https://date-fns.org).
+
+`npm run build` builds the application to `public/bundle.js`, along with a sourcemap file for debugging.
+
+`npm start` launches a server, using [serve](https://github.com/zeit/serve). Navigate to [localhost:3000](http://localhost:3000).
+
+`npm run watch` will continually rebuild the application as your source files change.
+
+`npm run dev` will run `npm start` and `npm run watch` in parallel.
+
+## License
+
+[MIT](LICENSE).
